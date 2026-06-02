@@ -84,20 +84,28 @@ const favourite = isFavourite(movie.id);
           onClick={() =>
             removeFavourite(movie.id)
           }
+          style={{
+    padding: "8px",
+    cursor: "pointer"
+  }}
         >
           Remove Favourite
         </button>
-    
+
       ) : (
       
         <button
           onClick={() =>
             addFavourite(movie)
           }
+          style={{
+    padding: "8px",
+    cursor: "pointer"
+  }}
         >
           Add To Favourites
         </button>
-    
+
       )
     }
     </div>
