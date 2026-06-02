@@ -1,13 +1,44 @@
-import { useState } from 'react'
+import {
+  Routes,
+  Route
+} from "react-router-dom";
+
+import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
+import FavouritesPage from "./pages/FavouritesPage";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
-  )
+    <Routes>
+
+      <Route
+        path="/login"
+        element={<LoginPage />}
+      />
+
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <HomePage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/favourites"
+        element={
+          <ProtectedRoute>
+            <FavouritesPage />
+          </ProtectedRoute>
+        }
+      />
+
+    </Routes>
+  );
 }
 
-export default App
+export default App;
