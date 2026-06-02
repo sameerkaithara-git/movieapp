@@ -159,6 +159,7 @@ export default function Navbar() {
                     <img
                         src={user.photoURL}
                         alt={user.displayName}
+                        referrerPolicy="no-referrer"
                         style={{
                             width: "40px",
                             height: "40px",
