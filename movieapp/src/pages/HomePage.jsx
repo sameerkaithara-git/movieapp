@@ -58,7 +58,11 @@ export default function HomePage() {
      <>
     <Navbar />
 
-    <div>
+    <div
+      style={{
+        padding: "0px"
+      }}
+    >
 
       {/* <input
         type="text"
@@ -66,9 +70,26 @@ export default function HomePage() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       /> */}
-
-
 <input
+  type="text"
+  placeholder="Search Movies..."
+  value={search}
+  onChange={(e) =>
+    setSearch(e.target.value)
+  }
+  style={{
+    width: "100%",
+    maxWidth: "600px",
+    padding: "12px",
+    fontSize: "16px",
+    borderRadius: "8px",
+    border: "1px solid #ccc",
+    marginBottom: "25px"
+  }}
+/>
+
+
+{/* <input
   type="text"
   placeholder="Search Movies..."
   value={search}
@@ -81,7 +102,7 @@ export default function HomePage() {
     padding: "10px",
     marginBottom: "20px"
   }}
-/>
+/> */}
 
       {/* {movies.map(movie => (
         <div key={movie.id}>
@@ -97,6 +118,17 @@ export default function HomePage() {
     marginTop: "20px"
   }}
 >
+{/* 
+<div
+  style={{
+    border: "1px solid #ddd",
+    borderRadius: "10px",
+    overflow: "hidden",
+    boxShadow:
+      "0 2px 8px rgba(0,0,0,0.15)",
+    backgroundColor: "white"
+  }}
+> */}
   {movies.map(movie => (
     <MovieCard
       key={movie.id}

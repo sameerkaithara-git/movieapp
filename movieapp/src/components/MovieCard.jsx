@@ -30,15 +30,15 @@ import { useFavourites } from "../context/FavouritesContext";
 
 export default function MovieCard({ movie }) {
 
- // const { addFavourite } = useFavourites();
+  // const { addFavourite } = useFavourites();
 
- const {
-  addFavourite,
-  removeFavourite,
-  isFavourite
-} = useFavourites();
+  const {
+    addFavourite,
+    removeFavourite,
+    isFavourite
+  } = useFavourites();
 
-const favourite = isFavourite(movie.id);
+  const favourite = isFavourite(movie.id);
 
   return (
     <div
@@ -50,10 +50,19 @@ const favourite = isFavourite(movie.id);
       }}
     >
       {movie.poster_path && (
+        // <img
+        //   src={imgUrl(movie.poster_path)}
+        //   alt={movie.title}
+        //   width="100%"
+        // />
         <img
           src={imgUrl(movie.poster_path)}
           alt={movie.title}
-          width="100%"
+          style={{
+            width: "100%",
+            height: "350px",
+            objectFit: "cover"
+          }}
         />
       )}
 
@@ -68,8 +77,8 @@ const favourite = isFavourite(movie.id);
       {/* <button>
         Add To Favourites
       </button> */}
-        
-        {/* <button
+
+      {/* <button
         onClick={() =>
           addFavourite(movie)
         }>
@@ -77,37 +86,63 @@ const favourite = isFavourite(movie.id);
  Add To Favourites
 </button> */}
 
-    {
-      favourite ? (
-      
-        <button
-          onClick={() =>
-            removeFavourite(movie.id)
-          }
-          style={{
-    padding: "8px",
-    cursor: "pointer"
-  }}
-        >
-          Remove Favourite
-        </button>
+      {/* {
+        favourite ? (
 
-      ) : (
-      
-        <button
-          onClick={() =>
-            addFavourite(movie)
-          }
-          style={{
-    padding: "8px",
-    cursor: "pointer"
-  }}
-        >
-          Add To Favourites
-        </button>
+          <button
+            onClick={() =>
+              removeFavourite(movie.id)
+            }
+            style={{
+              padding: "8px",
+              cursor: "pointer"
+            }}
+          >
+            Remove Favourite
+          </button>
 
-      )
-    }
+        ) : (
+
+          <button
+            onClick={() =>
+              addFavourite(movie)
+            }
+            style={{
+              padding: "8px",
+              cursor: "pointer"
+            }}
+          >
+            Add To Favourites
+          </button>
+
+        )
+      } */}
+      <button
+  onClick={() =>
+    favourite
+      ? removeFavourite(movie.id)
+      : addFavourite(movie)
+  }
+  style={{
+    width: "100%",
+    padding: "10px",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    backgroundColor:
+      favourite
+        ? "#dc2626"
+        : "#2563eb",
+    color: "white",
+    marginTop: "10px"
+  }}
+>
+  {
+    favourite
+      ? "Remove Favourite"
+      : "Add Favourite"
+  }
+</button>
     </div>
   );
 }
